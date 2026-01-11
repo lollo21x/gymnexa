@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Completely remove all browser default outlines and focus styles */
+@layer base {
+  /* Set Montserrat as default font */
+  body {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  /* Smooth scrolling and performance optimizations */
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Optimize animations and transitions */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Better focus management */
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  a:focus-visible {
+    @apply ring-2 ring-blue-500 ring-opacity-50;
+  }
+
+  /* Improve button and interactive element responsiveness */
+  button,
+  input,
+  textarea,
+  select,
+  a {
+    transition: all 0.2s ease-in-out !important;
+  }
+
+  /* Subtle hover lift effect - only on desktop and only for clickable elements */
+  @media (min-width: 768px) {
+    button:hover,
+    a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    button:active,
+    a:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+
+    /* Dark mode adjustments */
+    .dark button:hover,
+    .dark a:hover {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .dark button:active,
+    .dark a:active {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+
+  
+  * {
+    @apply outline-none;
+  }
+  
+  *:focus {
+    @apply outline-none;
+  }
+  
+  *:focus-visible {
+    @apply outline-none;
+  }
+  
+  /* Remove default input styling */
+  input,
+  textarea,
+  button,
+  select {
+    @apply outline-none;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  input:focus,
+  textarea:focus,
+  button:focus,
+  select:focus {
+    @apply outline-none;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  input:focus-visible,
+  textarea:focus-visible,
+  button:focus-visible,
+  select:focus-visible {
+    @apply outline-none;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Remove any webkit focus rings */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+  
+  /* Remove focus rings from all elements */
+  button::-moz-focus-inner {
+    border: 0;
+  }
+  
+  /* Remove any default focus styles */
+  :focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  :focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Hide scrollbars globally */
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  *::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+    -webkit-appearance: none;
+  }
+
+  /* Specific scrollbar hiding for textarea and other elements */
+  textarea::-webkit-scrollbar,
+  div::-webkit-scrollbar,
+  textarea::-webkit-scrollbar-track,
+  div::-webkit-scrollbar-track,
+  textarea::-webkit-scrollbar-thumb,
+  div::-webkit-scrollbar-thumb {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    -webkit-appearance: none !important;
+  }
+
+  /* Safari specific scrollbar hiding */
+  textarea,
+  div {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  textarea::-webkit-scrollbar,
+  textarea::-webkit-scrollbar-track,
+  textarea::-webkit-scrollbar-thumb,
+  textarea::-webkit-scrollbar-track-piece,
+  textarea::-webkit-scrollbar-corner {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    -webkit-appearance: none !important;
+  }
+
+
+
+  /* Specific rules for identified scrollable elements */
+  .flex-1.overflow-y-auto::-webkit-scrollbar,
+  .flex-1.overflow-y-auto::-webkit-scrollbar-track,
+  .flex-1.overflow-y-auto::-webkit-scrollbar-thumb {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    -webkit-appearance: none !important;
+  }
+
+  /* Force hide all scrollbars on scrollable containers */
+  div[class*="overflow-y-auto"],
+  div[class*="overflow-y-scroll"],
+  textarea[class*="overflow-y-auto"] {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  div[class*="overflow-y-auto"]::-webkit-scrollbar,
+  div[class*="overflow-y-scroll"]::-webkit-scrollbar,
+  textarea[class*="overflow-y-auto"]::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    -webkit-appearance: none !important;
+  }
+
+  /* Additional Safari-specific rules */
+  ::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    -webkit-appearance: none !important;
+  }
+
+  /* Hide scrollbars for horizontal scrolling elements */
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    -webkit-appearance: none !important;
+  }
+
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-thumb,
+  ::-webkit-scrollbar-corner {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    -webkit-appearance: none !important;
+  }
+  
+  /* Safari backdrop-filter support */
+  .backdrop-blur-md {
+    backdrop-filter: blur(12px);
+  }
+}
